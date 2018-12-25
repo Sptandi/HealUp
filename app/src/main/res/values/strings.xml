@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CBR</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="register">REGISTER</string>
+    <string name="forgot_password">FORGOT PASSWORD ?</string>
+    <string name="email">Email</string>
+    <string name="nama">Nama</string>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.app.cbr">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="Heal Up"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".RegisterActivity">
+        </activity>
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".HomeActivity">
+        </activity>
+        <activity android:name=".RiwayatActivity">
+        </activity>
+        <activity android:name=".KonsultasiActivity">
+        </activity>
+        <activity android:name=".databaseDAO.DaftarKonsultasiActivity">
+        </activity>
+        <activity android:name=".SolusiActivity">
+        </activity>
+        <activity android:name=".DetailActivity">
+        </activity>
+    </application>
+
+</manifest>
