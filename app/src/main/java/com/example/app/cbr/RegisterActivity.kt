@@ -26,6 +26,7 @@ class RegisterActivity : AppCompatActivity() {
             email = etEmailRegister.text .toString()
             password = etPasswordRegister.text.toString()
             isUserExist()
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
         }
     }
 

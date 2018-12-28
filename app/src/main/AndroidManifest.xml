@@ -20,17 +20,27 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity">
+        <activity
+                android:name=".HomeActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".RiwayatActivity">
+        <activity android:name=".RiwayatActivity"
+                  android:label="Riwayat">
         </activity>
-        <activity android:name=".KonsultasiActivity">
+        <activity android:name=".KonsultasiActivity"
+                  android:label="Konsultasi">
         </activity>
-        <activity android:name=".databaseDAO.DaftarKonsultasiActivity">
+        <activity android:name=".SolusiActivity"
+                  android:label="Hasil">
         </activity>
-        <activity android:name=".SolusiActivity">
+        <activity android:name=".DetailActivity"
+                  android:label="Detail">
         </activity>
-        <activity android:name=".DetailActivity">
+        <activity android:name=".model.ProfileActivity"
+                  android:label="Profile">
+        </activity>
+        <activity android:name=".AboutActivity"
+                  android:label="About">
         </activity>
     </application>
 

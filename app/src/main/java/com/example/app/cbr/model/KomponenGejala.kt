@@ -19,7 +19,7 @@ import android.arch.persistence.room.PrimaryKey
 )
 
 data class KomponenGejala (
-    @PrimaryKey var kasusGejala: Int = 0,
+    @PrimaryKey(autoGenerate = true) var kasusGejala: Int = 0,
     var kasusId: Int = 0,
     var gejalaId: Int = 0
 )

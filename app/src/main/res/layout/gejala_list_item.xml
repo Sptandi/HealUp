@@ -5,6 +5,8 @@
         android:layout_height="wrap_content">
 
     <TextView
+            android:layout_margin="16dp"
+            android:text="Anak berkelahi"
             android:id="@+id/tvGejalaAdapter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

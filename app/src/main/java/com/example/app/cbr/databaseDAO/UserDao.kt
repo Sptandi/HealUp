@@ -23,4 +23,10 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE emailUser == :email and passwordUser == :password")
     fun checkUser(email: String, password: String): Boolean
+
+    @Query("select * from user where idUser = :id")
+    fun getUserData(id: Int?) :User
+
+    @Query("Update user set nama = :nama ,emailUser = :email where idUser = :id")
+    fun updateUser(nama: String, email: String, id: Int?)
 }
