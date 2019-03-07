@@ -1,8 +1,11 @@
 package com.example.app.cbr
 
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.example.app.cbr.model.AppDatabase
 import com.example.app.cbr.model.User
@@ -21,17 +24,27 @@ class RegisterActivity : AppCompatActivity() {
 
         db = AppDatabase.getAppDataBase(this@RegisterActivity)
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            window.statusBarColor = getColor(R.color.colorBackround)
+        }
+
+        val bar: android.support.v7.app.ActionBar? = supportActionBar
+        bar?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.colorBackround)))
+        bar?.elevation = 0F
+
         btRegister.setOnClickListener {
             nama = etNama.text.toString()
-            email = etEmailRegister.text .toString()
-            password = etPasswordRegister.text.toString()
+            email = etEmail.text .toString()
+            password = etKataSandi.text.toString()
             isUserExist()
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
         }
     }
 
     fun cannotEmpty(): Boolean {
-        if(etNama.text.isEmpty() || etEmailRegister.text.isEmpty() || etPasswordRegister.text.isEmpty()) {
+        if(etNama.text.isEmpty() || etEmail.text.isEmpty() || etKataSandi.text.isEmpty()) {
             Toast.makeText(this, "Semua harus diisi", Toast.LENGTH_SHORT).show()
             return false
         }

@@ -16,7 +16,6 @@
             android:textSize="24dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="52dp"
             android:layout_marginLeft="32dp"
             android:text="Hey Saputro !"
             android:layout_width="wrap_content"

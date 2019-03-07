@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.Button
 import com.example.app.cbr.adapter.ChecklistAdapter
 import com.example.app.cbr.model.*
@@ -34,15 +35,12 @@ class KonsultasiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_konsultasi)
         db = AppDatabase.getAppDataBase(this@KonsultasiActivity)
 
-        addSolusi()
-        addGejala()
-        addKasus()
-        addKomponenGejala()
+        queryDB()
 
-        val nama: String = etNamaAnak.text.toString()
+        /*val nama: String = etNamaAnak.text.toString()
         val c: Date = Calendar.getInstance().time
         val df: SimpleDateFormat = SimpleDateFormat("dd-MMM-yyyy")
-        formatDate = df.format(c)
+        formatDate = df.format(c)*/
 
         rv = findViewById(R.id.rv)
         btCheck = findViewById(R.id.btCheck)
@@ -55,10 +53,7 @@ class KonsultasiActivity : AppCompatActivity() {
             }
         }
 
-        //set to adapter
-        adapter = ChecklistAdapter(this, gejalas)
-        rv.layoutManager = LinearLayoutManager(this)
-        rv.adapter = adapter
+        setAdapter()
 
         //getting checkbox that checked
         btCheck.setOnClickListener() {
@@ -73,15 +68,36 @@ class KonsultasiActivity : AppCompatActivity() {
         }
     }
 
+    fun queryDB() {
+        doAsync {
+            addSolusi()
+            addGejala()
+            addKasus()
+            addKomponenGejala()
+        }
+    }
+
+    fun setAdapter() {
+        //set to adapter
+        adapter = ChecklistAdapter(this, gejalas)
+        rv.layoutManager = LinearLayoutManager(this)
+        rv.adapter = adapter
+    }
+
     fun getUserSession(){
         val sharedPref: SharedPreferences = getSharedPreferences("file", Context.MODE_PRIVATE)
         userSession = sharedPref.getString("key-username", "tidak ada")
     }
 
 
+    fun jumlahKasusSama() {
+
+    }
+
     fun checkKemiripan() {
         doAsync {
             val jumlahKasus = db?.KasusDao()?.getCountKasus()
+            Log.d("jumlah kasus", jumlahKasus.toString())
             if (jumlahKasus != null) {
                 //mengulang sebanyak kasus
                 for (l in 1..jumlahKasus) {
@@ -111,7 +127,7 @@ class KonsultasiActivity : AppCompatActivity() {
                         }
                     }
                 }
-                val c = Calendar.getInstance().time
+                val c = SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(Date())
                 db?.KonsultasiDao()?.insertKonsultasi(Konsultasi(
                     namaAnak = etNamaAnak.text.toString() , userId = db?.UserDao()?.userIdSession(userSession), tanggal = c))
                 val getLast = db?.KonsultasiDao()?.getLastRow()

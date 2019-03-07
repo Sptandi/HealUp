@@ -18,7 +18,7 @@ import com.example.app.cbr.databaseDAO.*
     Komponen::class,
     KomponenGejala::class,
     GejalaSolusi::class]
-    , version = 77, exportSchema = false)
+    , version = 78, exportSchema = false)
 @TypeConverters(Converters::class)
 
 public abstract class AppDatabase : RoomDatabase() {

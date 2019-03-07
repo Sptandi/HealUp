@@ -1,5 +1,6 @@
 package com.example.app.cbr
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -53,5 +54,10 @@ class SolusiActivity : AppCompatActivity() {
         val adapterGejala = GejalaAdapter(dataGejala, this)
         recyclerViewGejala.adapter = adapterGejala
         recyclerViewSolusi.adapter = adapterSolusi
+
+        btSelesai.setOnClickListener() {
+            startActivity(Intent(this@SolusiActivity, HomeActivity::class.java))
+            finish()
+        }
     }
 }

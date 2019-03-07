@@ -17,7 +17,7 @@ interface KonsultasiDao {
     fun getUserKonsultasi(): List<Konsultasi>
 
     @Query("select tanggal from KONSULTASI")
-    fun getDate(): Date
+    fun getDate(): String
 
     @Query("select * from konsultasi ")
     fun getAll(): List<Konsultasi>

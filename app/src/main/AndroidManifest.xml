@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.example.app.cbr">
 
     <application
@@ -8,39 +9,63 @@
             android:label="Heal Up"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".slider.SliderActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                    android:label="">
         </activity>
-        <activity android:name=".RegisterActivity">
-        </activity>
-        <activity android:name=".LoginActivity">
+        <activity
+                android:name=".SplashActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity
+                android:name=".RegisterActivity"
+                android:parentActivityName=".LoginActivity"
+                android:theme="@style/Theme.AppCompat.Light">
+        </activity>
+        <activity
+                android:name=".LoginActivity"
+                android:label="Masuk"
+                android:parentActivityName=".RegisterActivity"
+                android:theme="@style/Theme.AppCompat.Light">
+        </activity>
         <activity
                 android:name=".HomeActivity"
-                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+                android:label="">
         </activity>
-        <activity android:name=".RiwayatActivity"
-                  android:label="Riwayat">
+        <activity
+                android:name=".RiwayatActivity"
+                android:label="Riwayat"
+                android:parentActivityName=".HomeActivity">
         </activity>
-        <activity android:name=".KonsultasiActivity"
-                  android:label="Konsultasi">
+        <activity
+                android:name=".KonsultasiActivity"
+                android:label="Konsultasi">
         </activity>
-        <activity android:name=".SolusiActivity"
-                  android:label="Hasil">
+        <activity
+                android:name=".SolusiActivity"
+                android:label="Hasil">
         </activity>
-        <activity android:name=".DetailActivity"
-                  android:label="Detail">
+        <activity
+                android:name=".DetailActivity"
+                android:label="Detail"
+                android:parentActivityName=".HomeActivity">
         </activity>
-        <activity android:name=".model.ProfileActivity"
-                  android:label="Profile">
+        <activity
+                android:name=".model.ProfileActivity"
+                android:label="Profile">
         </activity>
-        <activity android:name=".AboutActivity"
-                  android:label="About">
+        <activity
+                android:name=".AboutActivity"
+                android:label="About">
         </activity>
     </application>
 

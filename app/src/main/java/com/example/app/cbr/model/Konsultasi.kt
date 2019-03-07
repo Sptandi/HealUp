@@ -18,6 +18,6 @@ import java.util.*
 data class Konsultasi (
     @PrimaryKey(autoGenerate = true) var idKonsultasi: Int = 0,
     var namaAnak: String = "",
-    var tanggal: Date,
+    var tanggal: String,
     var userId: Int? = 0
 )

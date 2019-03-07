@@ -3,8 +3,11 @@ package com.example.app.cbr
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
+import android.view.WindowManager
 import com.example.app.cbr.model.AppDatabase
 import com.example.app.cbr.model.ProfileActivity
 import kotlinx.android.synthetic.main.activity_home.*
@@ -23,6 +26,14 @@ class HomeActivity : AppCompatActivity() {
         val getName = db?.UserDao()?.getUserData(id)
 
         tvWelcome.text = "Selamat datang, ${getName?.nama}"
+
+        val bar: android.support.v7.app.ActionBar? = supportActionBar
+        bar?.elevation = 0F
+
+        val window = getWindow()
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         btKonsultasi.setOnClickListener() {
 

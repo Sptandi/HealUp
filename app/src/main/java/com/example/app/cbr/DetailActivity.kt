@@ -2,6 +2,7 @@ package com.example.app.cbr
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.LinearLayout
@@ -29,7 +30,10 @@ class DetailActivity : AppCompatActivity() {
 
         val intent = getIntent()
         val id = intent.getStringExtra("id")
+        val date = intent.getStringExtra("date")
         Log.e("DB", id)
+
+        tvTanggal.text = date
 
         //get solusi from last konsultasi
         val getSolusi = db?.GejalaSolusiDao()?.getSolusi(id.toInt())
@@ -56,6 +60,8 @@ class DetailActivity : AppCompatActivity() {
 
         val adapterSolusi = SolusiAdapter(dataSolusi, this)
         val adapterGejala = GejalaAdapter(dataGejala, this)
+        recyclerViewGejala.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        recyclerViewSolusi.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
         recyclerViewGejala.adapter = adapterGejala
         recyclerViewSolusi.adapter = adapterSolusi
     }

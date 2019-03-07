@@ -2,6 +2,7 @@ package com.example.app.cbr.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.ViewHolder
@@ -23,6 +24,7 @@ class RiwayatAdapter(val items: List<Konsultasi>?, val context: Context) : Recyc
         p0.itemView.linearRecycler.setOnClickListener() {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("id", p0.itemView.tvGejala.text.toString())
+            intent.putExtra("date", items?.get(position)?.tanggal)
             startActivity(context, intent, intent.extras)
         }
     }
